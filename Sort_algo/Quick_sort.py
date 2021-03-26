@@ -1,11 +1,7 @@
-import random
 
 
 def quick_sort(data, low, high):
     if low < high:
-        k = random.randint(low, high)
-        data[low], k = k, data[low]
-
         p = partition(data, low, high)
         quick_sort(data, low, p-1)
         quick_sort(data, p+1, high)
