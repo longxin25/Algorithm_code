@@ -9,6 +9,7 @@ def shell_sort(data):
     while gap < length / 3:
         gap = gap * 3 + 1
     while gap > 0:
+        # 对子序列进行插入排序
         for i in range(gap, length):
             value = data[i]
             j = i - gap
@@ -16,6 +17,7 @@ def shell_sort(data):
                 data[j+gap] = data[j]
                 j -= gap
             data[j+gap] = value
+        # 增量递减
         gap = gap // 3
     
 

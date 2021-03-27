@@ -1,15 +1,20 @@
 
 
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    middle = len(arr) // 2
-    left, right = arr[0:middle], arr[middle:]
+def merge_sort(data):
+    if len(data) <= 1:
+        return data
+    middle = len(data) // 2
+    # 分割成左右两部分
+    left, right = data[0:middle], data[middle:]
+    # 递归进行分割，最后合并
     return merge(merge_sort(left), merge_sort(right))
 
+# 拼接函数
 def merge(left,right):
+    # 存储结果
     result = []
     while left and right:
+        # 向结果中添加较小元素
         if left[0] <= right[0]:
             result.append(left.pop(0))
         else:

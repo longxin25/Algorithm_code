@@ -9,7 +9,7 @@ class BinaryTree:
         self.data = value
         self.left = left
         self.right = right
-        self.dot = Digraph(comment='Binary Tree')
+        # self.dot = Digraph(comment='Binary Tree')
 
     # 前序遍历顺序：根节点->左子树->右子树
     def preorder(self):

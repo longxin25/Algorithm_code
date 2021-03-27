@@ -3,7 +3,9 @@
 class Array:
 
     def __init__(self, capacity: int) -> None:
+        # 数据
         self.__data = []
+        # 容量
         self.__capacity = capacity
 
     def find(self, index: int) -> object:
@@ -20,6 +22,7 @@ class Array:
             return False
 
     def insert(self, index: int, value: int) -> bool:
+        # 溢出
         if len(self.__data) >= self.__capacity:
             return False
         else:
