@@ -51,6 +51,21 @@ class BinaryTree:
         else:
             return 1 + max(self.left.height(), self.right.height())
 
+    # 广度优先遍历（层序遍历）
+    def BFS(self):
+        if self.data is None:
+            return
+        MyQueue = []
+        MyQueue.append(self)
+        while MyQueue:
+            BTree_node = MyQueue.pop(0)
+            print(BTree_node.data, end=' ')
+            if BTree_node.left is not None:
+                MyQueue.append(BTree_node.left)
+            if BTree_node.right is not None:
+                MyQueue.append(BTree_node.right)
+
+    '''
     # 利用Graphviz实现二叉树的可视化
     def print_tree(self, save_path='./Binary_Tree.gv', label=False):
 
@@ -82,6 +97,7 @@ class BinaryTree:
             print_node(self, root_tag)
 
         self.dot.render(save_path)                              # 保存文件为指定文件
+    '''
 
     
 if __name__ == '__main__':
@@ -119,5 +135,8 @@ if __name__ == '__main__':
     tree.postorder()
     print()
 
+    print('层序遍历为:')
+    tree.BFS()
+    print()
     # 利用Graphviz进行二叉树的可视化
     # tree.print_tree(save_path='./create_btree_by_list.gv', label=True)
