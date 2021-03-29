@@ -7,8 +7,8 @@ def BuildMaxHeap(data):
 # 堆化
 def Heapify(data, i):
     # 左右子树下标
-    left = 2 * i + 1
-    right = 2 * i + 2
+    left = 2 * i
+    right = 2 * i + 1
     largest = i
     # 调整最大值
     if left < length and data[left] > data[largest]:
@@ -35,6 +35,6 @@ def heap_sort(data):
 
 
 if __name__ == '__main__':
-    data = [4, 2, 1, 6, 8]
+    data = [4, 2, 1, 3, 8]
     result = heap_sort(data)
     print(result)
