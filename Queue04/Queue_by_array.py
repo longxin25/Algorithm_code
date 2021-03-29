@@ -50,6 +50,5 @@ class Queue:
         if self.head == self.tail:
             return
         value = self.data[self.head]
-        del self.data[self.head]
         self.head += 1
         return value
