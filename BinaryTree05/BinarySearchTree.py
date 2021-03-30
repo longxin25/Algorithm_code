@@ -62,5 +62,32 @@ class BST:
         # 没找到
         if not current:
             return
-        # TODO: 补全代码
-        
+        # 要删除的节点有两个子节点
+        if current.left and current.right:
+            # 记录该节点的右子树和右子树的父节点
+            temp = current.right
+            temp_parent = current
+            # 向左搜索直到找到最小节点
+            while temp.left:
+                temp_parent = temp
+                temp = temp.left
+            # 最小节点替换至要删除节点位置
+            current.value = temp.value
+            # 删除最小节点 TODO:确认代码正确
+            prev, current = temp_parent, temp
+            return
+        # 要删除的节点有零或一的子节点
+        if current.left:
+            child = current.left
+        else:
+            child = current.right
+        # 要删除的节点是根节点
+        if not prev:
+            # 直接用子节点替换掉根节点
+            self.root = child
+        # 要删除的节点是左子树
+        elif prev.left == current:
+            # 此节点的父节点左指针指向此节点的孩子节点
+            prev.left = child
+        else:
+            prev.right = child
